@@ -2,6 +2,7 @@
 
 from numpy.typing import ArrayLike
 import numpy as np
+from typing import Union
 from matplotlib import cm
 from matplotlib.colors import Normalize
 
@@ -41,7 +42,7 @@ class GifColorMesh(Gif2d):
         self._defargs.set_alias({"a":"alpha", "ec":"edgecolors"})
         self._allowed = {'a', "alpha", "vmin", "vmax", "ec", "edgecolors", "cmap"}
 
-    def lerp(self, factor: int | str = 'auto', kind: str = 'linear'):
+    def lerp(self, factor: Union[int,str] = 'auto', kind: str = 'linear'):
         raise NotImplementedError("lerp() not implemented with colormesh. Coming in later version.")
 
     def mark(self, **kwargs):

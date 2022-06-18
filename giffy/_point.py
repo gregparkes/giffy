@@ -1,10 +1,9 @@
 """Handles the 1D line case."""
 
-from typing import Optional
+from typing import Optional, Union
 import numpy as np
 from numpy.typing import ArrayLike
 import pandas as pd
-from scipy.interpolate import interp1d
 from functools import partial
 
 from ._basesub import Gif1d
@@ -80,9 +79,9 @@ class GifPoint(Gif1d):
             self._step_where = kwargs['stephow']
         return self
 
-    def trace(self, y: int | str,
-              x: Optional[int | str] = None,
-              z: Optional[int | str] = None,
+    def trace(self, y: Union[int,str],
+              x: Optional[Union[int,str]] = None,
+              z: Optional[Union[int,str]] = None,
               c: Optional[str] = None,
               m: Optional[str] = None,
               ls: Optional[str] = None):

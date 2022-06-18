@@ -11,6 +11,7 @@ from ._line import GifLine1D
 from ._scatter import GifScatter
 from ._colormesh import GifColorMesh
 from ._contour import GifContour
+from ._quiver import GifQuiver
 
 
 def Point(data: pd.DataFrame):
@@ -163,3 +164,28 @@ def Contour(Z: ArrayLike,
         Our custom object for handling contour animations.
     """
     return GifContour(Z, X, Y)
+
+
+def Quiver(U: ArrayLike,
+           V: ArrayLike,
+           X: Optional[ArrayLike] = None,
+           Y: Optional[ArrayLike] = None):
+    """Generates a Giffy Colormesh chart to manipulate.
+
+    Parameters
+    ----------
+    U : ndarray 3d (x, y, time)
+        data matrix of U coordinates with time as the last axis.
+    V : ndarray 3d (x, y, time)
+        data matrix of V coordinates with time as the last axis.
+    X : ndarray 1d | tuple(2)
+        grid to plot on the x-axis (instead of default)
+    Y : ndarray 1d | tuple(2)
+        grid to plot on the y-axis (instead of default)
+
+    Returns
+    -------
+    g : GifQuiver
+        Our custom object for handling quiver animations.
+    """
+    return GifQuiver(U, V, X, Y)

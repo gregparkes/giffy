@@ -1,7 +1,7 @@
 """Defines a base class for all GIF animators."""
 
 from abc import abstractmethod
-from typing import Optional, Callable
+from typing import Optional, Callable, Union
 from numpy.typing import ArrayLike
 
 import matplotlib.pyplot as plt
@@ -155,7 +155,7 @@ class GifBase:
         self._init_func = init_func
         return self
 
-    def lerp(self, factor: int | str = 'auto', **lerp_kws):
+    def lerp(self, factor: Union[int,str] = 'auto', **lerp_kws):
         """Linearly interpolates over the data points to make more data points.
 
         Executing lerp() is declarative and performs no action until the animation starts.

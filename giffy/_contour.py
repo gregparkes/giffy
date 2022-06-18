@@ -2,6 +2,7 @@
 
 from numpy.typing import ArrayLike
 import numpy as np
+from typing import Union
 from matplotlib import cm
 from matplotlib.colors import Normalize
 
@@ -38,7 +39,7 @@ class GifContour(Gif2d):
         self._defargs.set_alias({"ls":"linestyles", "lw":"linewidths"})
         self._allowed = {'vmin',"vmax","levels","lw","linewidth","ls","linestyle","cmap","alpha"}
 
-    def lerp(self, factor: int | str = 'auto', kind: str = 'linear'):
+    def lerp(self, factor: Union[int,str] = 'auto', kind: str = 'linear'):
         raise NotImplementedError(
             "lerp() not implemented with contour. Coming in later version.")
 

@@ -1,14 +1,14 @@
 """Helper script for plotting."""
 import numpy as np
 from numpy.typing import ArrayLike
-from typing import Iterable, Callable, List
+from typing import Iterable, Callable, List, Optional, Tuple, Union
 import itertools as it
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from matplotlib.dates import DateFormatter
 
 
-def assert_condition(condition, message, message_error = ValueError):
+def assert_condition(condition: bool, message: str, message_error = ValueError):
     if not condition:
         raise message_error(message)
 
@@ -90,7 +90,7 @@ def minmax(x: ArrayLike) -> ArrayLike:
     return (x - xm) / (np.max(x) - xm)
 
 
-def set_named_variable(x: int | str, data) -> str:
+def set_named_variable(x: Union[int,str], data) -> str:
     """Sets the variable according to a pandas.dataframe, x is in data."""
     if isinstance(x, int) and x < data.shape[1]:
         return data.columns[x]
@@ -100,7 +100,7 @@ def set_named_variable(x: int | str, data) -> str:
         raise ValueError(f"variable `{x}` does not belong in data.")
 
 
-def set_color_dataframe(col: str | list | tuple | ArrayLike, k_points: int = None):
+def set_color_dataframe(col: Union[str,List,Tuple,ArrayLike], k_points: Optional[int] = None):
     """Sets the color attribute for a 1D dataframe."""
     if isinstance(col, (str, list, tuple)):
         return col
@@ -118,7 +118,7 @@ def set_color_dataframe(col: str | list | tuple | ArrayLike, k_points: int = Non
             "argument 'c'|'color' must be of type ['str', 'list', 'tuple', 'ndarray']")
 
 
-def get_array_by_3daxis(data3d, i: int = 0, t_axis: int = 0):
+def get_array_by_3daxis(data3d: ArrayLike, i: int = 0, t_axis: int = 0) -> ArrayLike:
     if t_axis == 0:
         return data3d[i, :, :]
     elif t_axis == 1:
@@ -145,7 +145,7 @@ class Keywords(dict):
         self._alias = alias
         return self
     
-    def set_cond_key(self, cond, k_true, k_false, value):
+    def set_cond_key(self, cond: bool, k_true, k_false, value):
         """Sets a variable key based on a condition."""
         _k1 = self._get_alias(k_true)
         _k2 = self._get_alias(k_false)
