@@ -1,14 +1,18 @@
 # giffy: Turning Data Arrays into Matplotlib GIFs.
 =============================================
 
+<table>
+<tr>
+<td><img src='gifs/brownian.gif' alt='gif1' width="250"/></td>
+<td><img src='gifs/cmesh.gif' alt='gif3' width="200"/></td>
+<td><img src='gifs/line2.gif' alt='gif2' width="200"/></td>
+<td><img src='gifs/bar1.gif' alt='gif4' width="200"/></td>
+<td><img src='gifs/pie1.gif' alt='gif5' width="200"/></td>
+</tr>
+</table>
+
 ![pypi](https://img.shields.io/pypi/v/giffy)
 ![License](https://img.shields.io/pypi/l/giffy)
-
-<img src='gifs/brownian.gif' alt='gif1' width="250"/>
-<img src='gifs/line2.gif' alt='gif2' width="200"/>
-<img src='gifs/cmesh.gif' alt='gif3' width="200"/>
-<img src='gifs/bar1.gif' alt='gif4' width="200"/>
-<img src='gifs/pie1.gif' alt='gif5' width="200"/>
 
 ## What is it?
 
