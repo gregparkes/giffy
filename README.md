@@ -3,11 +3,11 @@
 
 <table>
 <tr>
-<td><img src='gifs/brownian.gif' alt='gif1' width="250"/></td>
-<td><img src='gifs/cmesh.gif' alt='gif3' width="200"/></td>
-<td><img src='gifs/line2.gif' alt='gif2' width="200"/></td>
-<td><img src='gifs/bar1.gif' alt='gif4' width="200"/></td>
-<td><img src='gifs/pie1.gif' alt='gif5' width="200"/></td>
+<td><img src='gifs/brownian.gif' alt='gif1' width="300"/></td>
+<td><img src='gifs/cmesh.gif' alt='gif3' width="250"/></td>
+<td><img src='gifs/line2.gif' alt='gif2' width="250"/></td>
+<td><img src='gifs/bar1.gif' alt='gif4' width="250"/></td>
+<td><img src='gifs/pie1.gif' alt='gif5' width="250"/></td>
 </tr>
 </table>
 
@@ -16,15 +16,14 @@
 
 ## What is it?
 
-`giffy` is a *declarative* plotting library on top of Matplotlib for turning data into GIF animations. Writing custom code for animations is time-consuming and requires deep knowledge of various aspects of Matplotlib. We handle this for you by providing common-sense interfaces to various plotting formats.
+`giffy` is a *declarative* plotting library for turning time-based data into GIF animations. Writing custom code for explainable animations is time-consuming and requires deep knowledge of various aspects of Matplotlib. We handle this for you by providing a common interface for all formats.
 
 ## Main Features
 
-* Ability to turn data (such as a pandas.DataFrame or numpy array) into a GIF **in one line of code**.
-* Automatic linear interpolation (**lerp**) for smoother and crisper animations.
-* Works out-of-the-box, but also supports flexible customizations.
-* Supports common plotting formats including scatter, bar, pie, colormesh and contours.
-* Plot is defined in a declarative fashion, so no computational overhead until you want to generate the animation.
+* Turn your time-series data into a GIF **in one line of code**.
+* Sick of ugly jumpy animations? Use our automatic linear interpolation (**lerp**) for smoother and crisper animations.
+* A number of plotting formats out-of-the box, with appropriate customizations to meet your needs.
+* Animations are defined in a declarative fashion, so no computational overhead until you want to generate the animation.
 
 ## How to use
 
@@ -40,22 +39,24 @@ X = np.random.randn(10, 50)
 gif.Scatter(X=X, Y=X, Z=X).mark(marker='.').lerp().plot()
 ```
 
-This gives an animation similar to the one displayed within this README. Note that no plotting occurs until the `plot()` function is called at the end, leading to a fully declarative approach to visualization similar to packages like `altair`.
+This gives an animation similar to the one displayed within this README. Note that no plotting occurs until the `.plot()` function is called at the end, leading to a fully declarative approach to visualization similar to packages like `altair`. Save your gifs to a file instead of plotting using the `.save()` command.
+
+Please check out the selection within the [`examples/`](examples/) folder for specifics for each plot type.
 
 ## Where to get it
 
-The source code is currently on GitHub at https://github.com/gregparkes/glyphy. There are plans to make a PyPI version at a later date.
+The source code is currently on GitHub at https://github.com/gregparkes/giffy. There are plans to make a PyPI version at a later date.
 
 ## Dependencies
 
-Glyphy supports Python 3.7+  and does not support Python 2.x.
+Giffy supports Python 3.7+  and does not support Python 2.x.
 
 For drawing the animations you will probably need FFMPEG installed including the appropriate Python package, or some alternative backend compatible with Matplotlib. Furthermore you will need:
 
-* Matplotlib: This package is built on top of Matplotlib technology.
-* NumPy: Support for vector and matrix calculations.
-* SciPy: Support for Linear Interpolations.
-* Pandas: Support for Tabular Datasets and automatic plot labelling.
+* [Matplotlib](https://matplotlib.org/stable/index.html): This package is built on top of Matplotlib technology.
+* [NumPy](https://numpy.org/): Support for vector and matrix calculations.
+* [SciPy](https://scipy.org/): Support for Linear Interpolations.
+* [Pandas](https://pandas.pydata.org/): Support for Tabular Datasets and automatic plot labelling.
 
 These can all be obtained using PyPI (within an appropriate environment).
 
@@ -63,7 +64,7 @@ These can all be obtained using PyPI (within an appropriate environment).
 pip install -r requirements.txt
 ```
 
- Ideally this works best within JupyterLab/Notebook for the immediate visual results.
+Ideally this works best within [JupyterLab/Notebook](https://jupyter.org/) for the immediate visual results, hence installing jupyter is strongly recommanded.
 
 ## Philosophy
 
@@ -76,6 +77,17 @@ The main thinking behind this package is to break up your desired animation into
 5. Using the first plot and updating function, define your animation and show/save it. This occurs when you make a call to `.plot()` or `.save()` respectively. 
 
 Whilst the majority of these steps are abstracted away from the user, it is important to think on these when defining your animation. 
+
+## FAQ
+
+1. *Why don't you support histograms or boxplots?*
+    - A histogram is merely a bar plot that has undergone aggregation on the data. At this stage of the project we have aimed to keep it as minimalistic as possible.
+2. *I want more Matplotlib customization in my GIFs.*
+    - Use `matplotlib.rcParams` and modify the customization you want. It is possible that the modification you seek is used in the `.mark()` function within most giffy objects.
+3. *Do you support animations with multiples axes?*
+    - At the present no, we have aimed to keep things as simple as possible, although the project could aim to add this functionality if there is demand.
+4. *It's taking too long to animate.*
+    - There are several causes for this: 1) you have too much data, 2) you are lerping to create too many data points, 3) matplotlib objects often struggle with millions of data samples. This package aims to be elegant and simple, not the most computationally optimal.
 
 ## References
 

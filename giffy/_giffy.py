@@ -14,7 +14,7 @@ from ._contour import GifContour
 
 
 def Point(data: pd.DataFrame):
-    """Generates a Glyphy Point chart to manipulate.
+    """Generates a Giffy Point chart to manipulate.
 
     Parameters
     ----------
@@ -31,7 +31,7 @@ def Point(data: pd.DataFrame):
 
 
 def Bar(data: pd.DataFrame, long: bool = False):
-    """Generates a Glyphy Bar chart to manipulate.
+    """Generates a Giffy Bar chart to manipulate.
 
     Parameters
     ----------
@@ -55,7 +55,7 @@ def Bar(data: pd.DataFrame, long: bool = False):
 
 
 def Pie(data: pd.DataFrame):
-    """Generates a Glyphy Pie chart to manipulate.
+    """Generates a Giffy Pie chart to manipulate.
 
     Parameters
     ----------
@@ -72,7 +72,7 @@ def Pie(data: pd.DataFrame):
 
 
 def Line(Y: ArrayLike, X: Optional[ArrayLike] = None):
-    """Generates a Glyphy Line chart to manipulate.
+    """Generates a Giffy Line chart to manipulate.
 
     Parameters
     ----------
@@ -94,7 +94,7 @@ def Scatter(X: ArrayLike,
             Z: Optional[ArrayLike] = None,
             C: Optional[ArrayLike] = None,
             S: Optional[ArrayLike] = None):
-    """Generates a Glyphy Scatter chart to manipulate.
+    """Generates a Giffy Scatter chart to manipulate.
 
     Parameters
     ----------
@@ -124,7 +124,7 @@ def Scatter(X: ArrayLike,
 def ColorMesh(C: ArrayLike,
               X: Optional[ArrayLike] = None,
               Y: Optional[ArrayLike] = None):
-    """Generates a Glyphy Colormesh chart to manipulate.
+    """Generates a Giffy Colormesh chart to manipulate.
 
     Parameters
     ----------
@@ -146,7 +146,7 @@ def ColorMesh(C: ArrayLike,
 def Contour(Z: ArrayLike,
             X: Optional[ArrayLike] = None,
             Y: Optional[ArrayLike] = None):
-    """Generates a Glyphy Contour chart to manipulate.
+    """Generates a Giffy Contour chart to manipulate.
 
     Parameters
     ----------
