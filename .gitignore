@@ -1,0 +1,14 @@
+datasets/
+.ipynb_checkpoints
+build/
+dist/
+.vscode/
+.idea/
+.coverage
+*.pyc
+*-checkpoint.ipynb
+__pycache__
+.pytest_cache/
+.DS_Store
+*.pyc
+*.pptx
